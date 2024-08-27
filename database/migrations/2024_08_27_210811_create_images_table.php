@@ -9,15 +9,15 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            //
+        Schema::create('images', function (Blueprint $table) {
+            $table->id();
+            $table->string('route');
+            $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('images');
     }
 };
