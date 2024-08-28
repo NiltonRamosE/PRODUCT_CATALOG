@@ -27,7 +27,7 @@
                 <h1 class="logo"><a href="{{ route('index') }}">Geanela's Shop</a></h1>
             </header>
             <nav>
-                @yield('content-nav-product')
+                @yield('content-nav-shop')
             </nav>
             
             <footer>
@@ -35,12 +35,12 @@
             </footer>
         </aside>
         <main>
-            @yield('content-main-product')
+            @yield('content-main-shop')
         </main>
     </div>
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="{{asset('js/menu.js')}}"></script>
-    @yield('content-script-product')
+    @yield('content-script-shop')
 </body>
 </html>
