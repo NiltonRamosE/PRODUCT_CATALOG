@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\ImageProduct;
+use App\Models\ImagesProduct;
 
-class ImageProductSeeder extends Seeder
+class ImagesProductSeeder extends Seeder
 {
 
     public function run(): void
@@ -41,7 +41,7 @@ class ImageProductSeeder extends Seeder
         ];        
         
         foreach ($images_products as $images_productData) {
-            $images_product = new ImageProduct();
+            $images_product = new ImagesProduct();
             $images_product->product_id = $images_productData[0];
             $images_product->image_id = $images_productData[1];
             $images_product->save();

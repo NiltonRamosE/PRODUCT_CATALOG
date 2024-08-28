@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\SubCategoryProduct;
+use App\Models\SubCategoriesProduct;
 
-class SubCategoryProductSeeder extends Seeder
+class SubCategoriesProductSeeder extends Seeder
 {
 
     public function run(): void
@@ -36,7 +36,7 @@ class SubCategoryProductSeeder extends Seeder
         ];        
         
         foreach ($sub_categories_products as $sub_categories_productData) {
-            $sub_categories_product = new SubCategoryProduct();
+            $sub_categories_product = new SubCategoriesProduct();
             $sub_categories_product->product_id = $sub_categories_productData[0];
             $sub_categories_product->sub_category_id = $sub_categories_productData[1];
             $sub_categories_product->save();
