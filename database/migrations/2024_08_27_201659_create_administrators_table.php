@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('work_email', 100)->unique();
             $table->string('password');
             $table->string('recovery_email', 20)->unique()->nullable();
-            $table->string('image_admin');
+            $table->string('image_admin')->nullable();
             $table->timestamps();
         });
     }
