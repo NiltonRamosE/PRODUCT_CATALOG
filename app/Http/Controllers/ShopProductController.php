@@ -34,12 +34,10 @@ class ShopProductController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function showSubCategories(string $id)
     {
-        //
+        $subCategories = SubCategory::where('category_id', $id)->get();
+        return response()->json($subCategories);
     }
 
     /**
