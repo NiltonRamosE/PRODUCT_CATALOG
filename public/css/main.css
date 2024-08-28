@@ -67,7 +67,9 @@ a{
 }
 
 /* Navbar */
-
+.navbar {
+    background-color: white;
+}
 .navbar-toggler i{
     color: black;
 }

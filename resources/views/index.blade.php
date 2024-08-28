@@ -42,7 +42,7 @@
 
     
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg" style="background-color: white;">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="{{asset('img/test_logo_1.svg')}}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
