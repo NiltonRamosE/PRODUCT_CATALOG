@@ -45,13 +45,7 @@ class ShopProductController extends Controller
         $products = Product::all();
 
         foreach ($products as $product) {
-            $image = Image::whereIn('id', function($query) use ($product) {
-                $query->select('image_id')
-                    ->from('images_products')
-                    ->where('product_id', $product->id);
-            })->first();
-
-            $product->image = asset($image->route);
+            $product->image = $this->getProductImages($product, true);
         }
 
         return response()->json($products);
@@ -70,15 +64,9 @@ class ShopProductController extends Controller
         })->get();
 
         foreach ($products as $product) {
-            $image = Image::whereIn('id', function($query) use ($product) {
-                $query->select('image_id')
-                    ->from('images_products')
-                    ->where('product_id', $product->id);
-            })->first();
-
-            $product->image = asset($image->route);
+            $product->image = $this->getProductImages($product, true);
         }
-        
+
         return response()->json($products);
     }
 
@@ -86,19 +74,29 @@ class ShopProductController extends Controller
     {
         $product = Product::find($id);
 
-        $images = Image::whereIn('id', function($query) use ($product) {
-            $query->select('image_id')
-                ->from('images_products')
-                ->where('product_id', $product->id);
-        })->get();
-
-        $product->image = $images->map(function($image) {
-            return asset($image->route);
-        });
+        $product->image = $this->getProductImages($product);
         
         return view('shop.shop_description_product', compact('product'));
     }
+
     
+    private function getProductImages(Product $product, bool $single = false)
+    {
+        $query = Image::whereIn('id', function($query) use ($product) {
+            $query->select('image_id')
+                ->from('images_products')
+                ->where('product_id', $product->id);
+        });
+
+        if ($single) {
+            return $query->first() ? asset($query->first()->route) : null;
+        } else {
+            return $query->get()->map(function($image) {
+                return asset($image->route);
+            });
+        }
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
