@@ -50,7 +50,7 @@ botonesCategorias.forEach(boton => boton.addEventListener("click", (e) => {
                 containCategoryCards.innerHTML = '';
 
                 subcategories.forEach(subcategory => {
-                    // Crear un nuevo card
+                    
                     const card = document.createElement('div');
                     card.classList.add('card');
                     
@@ -78,7 +78,13 @@ botonesCategorias.forEach(boton => boton.addEventListener("click", (e) => {
 
             })
             .catch(error => console.error('Error fetching subcategories:', error));
+        fetch(`/specificproducts/${id}`)
+            .then(response => response.json())
+            .then(productspecific => {
+                cargarProductos(productspecific);
+            })
     } else {
         containCategoryCards.innerHTML = '';
+        cargarProductos(productos);
     }
 }));

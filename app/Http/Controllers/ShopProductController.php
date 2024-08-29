@@ -68,6 +68,17 @@ class ShopProductController extends Controller
                         ->where('sc.category_id', $id);
                 });
         })->get();
+
+        foreach ($products as $product) {
+            $image = Image::whereIn('id', function($query) use ($product) {
+                $query->select('image_id')
+                    ->from('images_products')
+                    ->where('product_id', $product->id);
+            })->first();
+
+            $product->image = asset($image->route);
+        }
+        
         return response()->json($products);
     }
 

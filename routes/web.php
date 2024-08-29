@@ -10,6 +10,7 @@ Route::get('/', function () {
 Route::get('/shop', [ShopProductController::class, 'index'])->name('shop.index');
 Route::get('/allproducts', [ShopProductController::class, 'showProducts'])->name('shop.showProducts');
 Route::get('/subcategories/{id}', [ShopProductController::class, 'showSubCategories'])->name('shop.showSubCategories');
+Route::get('/specificproducts/{id}', [ShopProductController::class, 'showProductByCategories'])->name('shop.showProductByCategories');
 
 
 
