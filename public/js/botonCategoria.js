@@ -22,14 +22,14 @@ function cargarProductos(productosElegidos) {
         const div = document.createElement("div");
         div.classList.add("producto");
         div.innerHTML = `
-            <img class="producto-imagen" src="${producto.image}" alt="${producto.name}">
+            <a href="#"><img class="producto-imagen" src="${producto.image}" alt="${producto.name}"></a>
             <div class="producto-detalles">
                 <h3 class="producto-titulo">${producto.name}</h3>
                 <p class="producto-precio">$${producto.price}</p>
                 <button class="producto-agregar" id="${producto.id}">Agregar</button>
             </div>
         `;
-
+        //originalmente la clase era .producto-agregar y era para la funcionalidad de "agregar" en
         contenedorProductos.append(div);
     })
 
