@@ -82,6 +82,23 @@ class ShopProductController extends Controller
         return response()->json($products);
     }
 
+    public function showProductSpecific(string $id)
+    {
+        $product = Product::find($id);
+
+        $images = Image::whereIn('id', function($query) use ($product) {
+            $query->select('image_id')
+                ->from('images_products')
+                ->where('product_id', $product->id);
+        })->get();
+
+        $product->image = $images->map(function($image) {
+            return asset($image->route);
+        });
+        
+        return view('shop.shop_description_product', compact('product'));
+    }
+    
     /**
      * Show the form for editing the specified resource.
      */

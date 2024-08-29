@@ -27,4 +27,5 @@
 
 @section('content-script-shop')
     <script src="{{asset('js/botonCategoria.js')}}"></script>
+    <script src="{{asset('js/ir-product-description.js')}}"></script>
 @endsection

@@ -12,7 +12,7 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         $products = [
-            ['TECNO_S_00001', 'iPhone 14 Pro', 'Smartphone de alta gama con cámara avanzada y pantalla OLED.', 999.99, true, 50],
+            ['TECNO_S_00001', 'iPhone 14 Pro', 'Smartphone de alta gama con cámara avanzada y pantalla OLED.', 999.99, false, 0],
             ['TECNO_L_00002', 'MacBook Air M2', 'Laptop ultraligera con procesador M2, ideal para trabajo portátil.', 1299.99, true, 30],
             ['TECNO_AE_00003', 'Cargador Inalámbrico Qi', 'Cargador rápido para dispositivos compatibles con Qi.', 49.99, true, 200],
         

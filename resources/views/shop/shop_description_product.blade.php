@@ -127,28 +127,51 @@
         <a href="{{route('shop.index')}}">Inicio</a>
         <a href="#">Tienda</a>
         <a href="#">Uniformes ejecutivos</a>
-        <span>Chaleco Emma</span>
+        <span>{{$product->name}}</span>
     </div>
 
     <!-- Product Section -->
     <div class="product-container">
+        
         <div class="product-images">
             <div class="main-image">
-                <img id="main-img" src="https://via.placeholder.com/500" alt="Producto Principal">
+                <img id="main-img" src="{{ $product->image->isNotEmpty() ? $product->image[0] : 'https://via.placeholder.com/500' }}" alt="{{ $product->name }}_1" data-index="0">
             </div>
+            
             <div class="thumbnail-images">
-                <img class="thumb-img" src="https://via.placeholder.com/100" alt="Imagen 1" onclick="changeImage(this)">
-                <img class="thumb-img" src="https://via.placeholder.com/100" alt="Imagen 2" onclick="changeImage(this)">
-                <img class="thumb-img" src="https://via.placeholder.com/100" alt="Imagen 3" onclick="changeImage(this)">
-                <img class="thumb-img" src="https://via.placeholder.com/100" alt="Imagen 4" onclick="changeImage(this)">
+                @foreach($product->image as $index => $image)
+                    <img class="thumb-img" src="{{ $image }}" alt="{{ $product->name }}_{{ $index + 1 }}" data-index="{{ $index }}" onclick="changeImage(this)">
+                @endforeach
             </div>
         </div>
+              
         <div class="product-details">
-            <h1>Nombre del Producto</h1>
-            <p class="price">$999.99 MXN</p>
+            <h1>{{$product->name}}</h1>
+            <p class="price">S/. {{$product->price}} soles</p>
             <p class="description">
-                Descripción del producto. Aquí se detalla la información importante del producto que se está vendiendo.
+                {{$product->description}}
             </p>
+            <p class="description">
+                @if($product->active)
+                    <span>Disponible en Tienda</span>
+                    <i class="fas fa-check-circle" style="color: green;"></i>
+                @else
+                    <span>No Disponible</span>
+                    <i class="fas fa-times-circle" style="color: red;"></i>
+                @endif
+            </p>
+            <p class="description">Cantidad: {{$product->stock}}</p>
+
+            @if($product->stock > 0)
+                <div class="cantidad-container">
+                    <label for="cantidad-{{ $product->id }}" class="cantidad-label">Cantidad:</label>
+                    <input type="number" id="cantidad-{{ $product->id }}" name="cantidad" min="1" max="{{ $product->stock }}" value="1" class="cantidad-input">
+                </div>
+            @else
+                <p class="agotado">Producto agotado</p>
+            @endif
+            
+            <!--
             <label for="color">Selecciona el color:</label>
             <select id="color" class="feature-product">
                 <option value="black">Negro</option>
@@ -162,6 +185,7 @@
                 <option value="xl">XL</option>
                 <option value="xxl">XXL</option>
             </select>
+            -->
             <div class="row">
                 <button id="add-to-cart" class="button-add-car">Añadir al carrito</button>
             </div>
@@ -170,11 +194,8 @@
                     <i class="fab fa-whatsapp"></i> Ordena vía WhatsApp
                 </a>
             </div>
-            
-            
-            
         </div>
     </div>
-    <script src="description_product.js"></script>
+    <script src="{{asset('js/description_product.js')}}"></script>
 </body>
 </html>
