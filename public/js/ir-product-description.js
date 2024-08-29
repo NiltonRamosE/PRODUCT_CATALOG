@@ -1,3 +1,5 @@
+//Clase que ya no me sirve
+
 const buttonShopDescriptionProduct = document.querySelectorAll(".button-product-description");
 
 function updateButtonShopDescriptionProduct() {

@@ -115,8 +115,8 @@
     <!-- Breadcrumb -->
     <div class="breadcrumb">
         <a href="{{route('shop.index')}}">Inicio</a>
-        <a href="#">Tienda</a>
-        <a href="#">Uniformes ejecutivos</a>
+        <a href="#">Categoria</a>
+        <a href="#">Subcategoria</a>
         <span>{{$product->name}}</span>
     </div>
 

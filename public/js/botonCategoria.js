@@ -22,7 +22,7 @@ function cargarProductos(productosElegidos) {
         const div = document.createElement("div");
         div.classList.add("producto");
         div.innerHTML = `
-            <a class="button-product-description" href="#">
+            <a class="button-product-description" href="/specificproductdescription/${producto.id}">
                 <img class="producto-imagen" src="${producto.image}" alt="${producto.name}">
             </a>
             <div class="producto-detalles">
