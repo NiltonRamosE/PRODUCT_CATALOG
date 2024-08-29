@@ -349,3 +349,9 @@ label {
     background-color: #1EBE57;
     transform: translateY(-2px);
 }
+
+.disabled-link, .button-add-car:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}

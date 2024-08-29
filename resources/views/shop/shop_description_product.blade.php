@@ -42,7 +42,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ route('shop.index') }}">
                 <img src="{{asset('img/test_logo_1.svg')}}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                 Geanela's Shop
             </a>
@@ -54,19 +54,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('shop.index') }}">Productos</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categorías
-                        </a>
-                        <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
+                        <a class="nav-link disabled" href="#" >Contacto</a>
                     </li>
                 </ul>
                 <form class="form relative">
@@ -132,7 +122,7 @@
 
     <!-- Product Section -->
     <div class="product-container">
-        
+
         <div class="product-images">
             <div class="main-image">
                 <img id="main-img" src="{{ $product->image->isNotEmpty() ? $product->image[0] : 'https://via.placeholder.com/500' }}" alt="{{ $product->name }}_1" data-index="0">
@@ -145,7 +135,7 @@
             </div>
         </div>
               
-        <div class="product-details">
+        <div class="product-details" data-product-id="{{ $product->id }}" data-product-name="{{ $product->name }}" data-product-price="{{ $product->price }}">
             <h1>{{$product->name}}</h1>
             <p class="price">S/. {{$product->price}} soles</p>
             <p class="description">
@@ -187,15 +177,17 @@
             </select>
             -->
             <div class="row">
-                <button id="add-to-cart" class="button-add-car">Añadir al carrito</button>
+                <button id="add-to-cart" class="button-add-car" {{ !$product->active ? 'disabled' : '' }}>Añadir al carrito</button>
             </div>
             <div class="row">
-                <a href="https://wa.me/951011604?text=Hola,%20quiero%20ordenar%20este%20producto" target="_blank" class="whatsapp-button">
+                <a id="whatsapp-link" href="#" target="_blank" class="whatsapp-button {{ !$product->active ? 'disabled-link' : '' }}">
                     <i class="fab fa-whatsapp"></i> Ordena vía WhatsApp
                 </a>
             </div>
+            
         </div>
     </div>
     <script src="{{asset('js/description_product.js')}}"></script>
+    <script src="{{asset('js/order-whatsapp.js')}}"></script>
 </body>
 </html>
