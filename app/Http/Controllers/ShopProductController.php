@@ -40,6 +40,37 @@ class ShopProductController extends Controller
         return response()->json($subCategories);
     }
 
+    public function showProducts()
+    {
+        $products = Product::all();
+
+        foreach ($products as $product) {
+            $image = Image::whereIn('id', function($query) use ($product) {
+                $query->select('image_id')
+                    ->from('images_products')
+                    ->where('product_id', $product->id);
+            })->first();
+
+            $product->image = asset($image->route);
+        }
+
+        return response()->json($products);
+    }
+
+    public function showProductByCategories(string $id)
+    {
+        $products = Product::whereIn('id', function($query) use ($id){
+            $query->select('scp.product_id')
+                ->from('sub_categories_products as scp')
+                ->whereIn('scp.sub_category_id', function($query) use ($id){
+                    $query->select('sc.id')
+                        ->from('sub_categories as sc')
+                        ->where('sc.category_id', $id);
+                });
+        })->get();
+        return response()->json($products);
+    }
+
     /**
      * Show the form for editing the specified resource.
      */

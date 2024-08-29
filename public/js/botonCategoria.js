@@ -1,9 +1,40 @@
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const containCategoryCards = document.querySelector("#contain-category-cards");
+const contenedorProductos = document.querySelector("#contenedor-productos");
+
+fetch("./allproducts")
+    .then(response => response.json())
+    .then(data => {
+        productos = data;
+        cargarProductos(productos);
+    })
 
 botonesCategorias.forEach(boton => boton.addEventListener("click", () => {
     aside.classList.remove("aside-visible");
 }))
+
+function cargarProductos(productosElegidos) {
+
+    contenedorProductos.innerHTML = "";
+
+    productosElegidos.forEach(producto => {
+
+        const div = document.createElement("div");
+        div.classList.add("producto");
+        div.innerHTML = `
+            <img class="producto-imagen" src="${producto.image}" alt="${producto.name}">
+            <div class="producto-detalles">
+                <h3 class="producto-titulo">${producto.name}</h3>
+                <p class="producto-precio">$${producto.price}</p>
+                <button class="producto-agregar" id="${producto.id}">Agregar</button>
+            </div>
+        `;
+
+        contenedorProductos.append(div);
+    })
+
+    //actualizarBotonesAgregar();
+}
 
 botonesCategorias.forEach(boton => boton.addEventListener("click", (e) => {
     botonesCategorias.forEach(boton => boton.classList.remove("active"));
@@ -48,6 +79,6 @@ botonesCategorias.forEach(boton => boton.addEventListener("click", (e) => {
             })
             .catch(error => console.error('Error fetching subcategories:', error));
     } else {
-
+        containCategoryCards.innerHTML = '';
     }
 }));

@@ -8,6 +8,7 @@ Route::get('/', function () {
 })->name('index');
 
 Route::get('/shop', [ShopProductController::class, 'index'])->name('shop.index');
+Route::get('/allproducts', [ShopProductController::class, 'showProducts'])->name('shop.showProducts');
 Route::get('/subcategories/{id}', [ShopProductController::class, 'showSubCategories'])->name('shop.showSubCategories');
 
 
