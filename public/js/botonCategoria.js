@@ -1,28 +1,30 @@
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const containCategoryCards = document.querySelector("#contain-category-cards");
 const contenedorProductos = document.querySelector("#contenedor-productos");
+/*URL para pruebas*/
+//const baseUrl = 'http://127.0.0.1:8000';
+/*URL para produccion*/
+const baseUrl = 'https://productcatalog-production.up.railway.app';
 
-fetch("./allproducts")
+fetch(`${baseUrl}/allproducts`)
     .then(response => response.json())
     .then(data => {
         productos = data;
         cargarProductos(productos);
-    })
+    });
 
 botonesCategorias.forEach(boton => boton.addEventListener("click", () => {
     aside.classList.remove("aside-visible");
-}))
+}));
 
 function cargarProductos(productosElegidos) {
-
     contenedorProductos.innerHTML = "";
 
     productosElegidos.forEach(producto => {
-
         const div = document.createElement("div");
         div.classList.add("producto");
         div.innerHTML = `
-            <a class="button-product-description" href="/specificproductdescription/${producto.id}">
+            <a class="button-product-description" href="${baseUrl}/specificproductdescription/${producto.id}">
                 <img class="producto-imagen" src="${producto.image}" alt="${producto.name}">
             </a>
             <div class="producto-detalles">
@@ -32,7 +34,7 @@ function cargarProductos(productosElegidos) {
             </div>
         `;
         contenedorProductos.append(div);
-    })
+    });
 
     updateButtonShopDescriptionProduct();
     //actualizarBotonesAgregar();
@@ -44,24 +46,22 @@ botonesCategorias.forEach(boton => boton.addEventListener("click", (e) => {
 
     const id = e.currentTarget.id;
 
-    if (id != "todos") {
-        fetch(`/subcategories/${id}`)
+    if (id !== "todos") {
+        fetch(`${baseUrl}/subcategories/${id}`)
             .then(response => response.json())
             .then(subcategories => {
-
                 containCategoryCards.innerHTML = '';
 
                 subcategories.forEach(subcategory => {
-                    
                     const card = document.createElement('div');
                     card.classList.add('card');
-                    
+
                     const subCardCategory = document.createElement('div');
                     subCardCategory.classList.add('sub-card', 'category');
                     subCardCategory.innerHTML = `
                         <span class="text_span">${subcategory.name}</span>
                     `;
-                    
+
                     const cardContainer = document.createElement('div');
                     cardContainer.classList.add('card_container');
                     cardContainer.innerHTML = `
@@ -71,20 +71,20 @@ botonesCategorias.forEach(boton => boton.addEventListener("click", (e) => {
                         ></path>
                         </svg>
                     `;
-                    
+
                     card.appendChild(subCardCategory);
                     card.appendChild(cardContainer);
 
                     containCategoryCards.appendChild(card);
                 });
-
             })
             .catch(error => console.error('Error fetching subcategories:', error));
-        fetch(`/subcategoriesproducts/${id}`)
+
+        fetch(`${baseUrl}/subcategoriesproducts/${id}`)
             .then(response => response.json())
             .then(productspecific => {
                 cargarProductos(productspecific);
-            })
+            });
     } else {
         containCategoryCards.innerHTML = '';
         cargarProductos(productos);
