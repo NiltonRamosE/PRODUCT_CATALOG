@@ -26,5 +26,5 @@
 @endsection
 
 @section('content-script-shop')
-    <script src="{{asset('js/botonCategoria.js')}}"></script>
+    <script src="{{secure_asset ('js/botonCategoria.js')}}"></script>
 @endsection
