@@ -7,8 +7,8 @@
     <title>Geanela's Shop</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link rel="icon" href="{{secure_asset ('img/test_icon.svg')}}" type="image/x-icon">
-    <link rel="stylesheet" href="{{secure_asset ('css/shop.css')}}">
+    <link rel="icon" href="{{asset ('img/test_icon.svg')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{asset ('css/shop.css')}}">
 </head>
 <body>
 
@@ -44,7 +44,7 @@
     </div>
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="{{secure_asset ('js/menu.js')}}"></script>
+    <script src="{{asset ('js/menu.js')}}"></script>
     @yield('content-script-shop')
 </body>
 </html>

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geanela's Shop</title>
-    <link rel="icon" href="{{secure_asset('img/test_icon.svg')}}" type="image/x-icon">
-    <link rel="stylesheet" href="{{secure_asset('css/description_product.css')}}">
+    <link rel="icon" href="{{asset('img/test_icon.svg')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{asset('css/description_product.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -43,7 +43,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('shop.index') }}">
-                <img src="{{secure_asset('img/test_logo_1.svg')}}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                <img src="{{asset('img/test_logo_1.svg')}}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                 Geanela's Shop
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -187,7 +187,7 @@
             
         </div>
     </div>
-    <script src="{{secure_asset('js/description_product.js')}}"></script>
-    <script src="{{secure_asset('js/order-whatsapp.js')}}"></script>
+    <script src="{{asset('js/description_product.js')}}"></script>
+    <script src="{{asset('js/order-whatsapp.js')}}"></script>
 </body>
 </html>
