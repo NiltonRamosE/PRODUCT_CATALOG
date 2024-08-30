@@ -44,6 +44,30 @@ aside {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow-y: auto;
+}
+
+aside header{
+    margin-bottom: 20px;
+}
+
+aside::-webkit-scrollbar {
+    width: 12px;
+}
+
+aside::-webkit-scrollbar-track {
+    background: var(--clr-main);
+    border-radius: 10px;
+}
+
+aside::-webkit-scrollbar-thumb {
+    background-color: var(--clr-main-light);
+    border-radius: 10px;
+    border: 3px solid var(--clr-main);
+}
+
+aside::-webkit-scrollbar-thumb:hover {
+    background-color: var(--clr-white);
 }
 
 .logo {
@@ -137,6 +161,150 @@ main {
     padding: 3rem;
 }
 
+.contain-category-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.card {
+    --white: hsl(0, 0%, 83%);
+    --black: hsl(240, 15%, 9%);
+    --stone-300: hsl(24, 6%, 83%);
+    --pink-500: hsl(299, 100%, 83%);
+  
+    cursor: pointer;
+  
+    position: relative;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.sub-card {
+    display: flex;
+    align-items: center;
+  
+    padding: 0.75rem;
+    min-width: 10rem;
+    height: 1.25rem;
+    background-color: var(--stone-300);
+}
+.sub-card.category {
+    justify-content: space-between;
+  
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+  
+    transition: all 0.5s cubic-bezier(1, 0, 0, 1);
+}
+.sub-card.named {
+    justify-content: center;
+  
+    border-radius: 0rem 0rem 0.5rem 0.5rem;
+  
+    transition: all 0.5s cubic-bezier(1, 0, 0, 1);
+}
+  
+.card:hover .sub-card.category {
+    transform: translateY(100%);
+}
+.card:hover .sub-card.named {
+    transform: translateY(-100%);
+}
+  
+.sub-card .text_span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--black);
+    text-transform: capitalize;
+}
+  
+.card_container {
+    overflow: hidden;
+  
+    position: relative;
+    z-index: 5;
+  
+    width: 11rem;
+    height: 8rem;
+    background-color: var(--pink-500);
+  
+    border-radius: 0.5rem;
+}
+.card_container::before {
+    content: "";
+  
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    width: 0rem;
+    aspect-ratio: 1;
+    background-color: hsl(240, 15%, 9%, 0.2);
+  
+    border-radius: 50%;
+    transform-origin: center;
+  
+    transition: all 1s cubic-bezier(1, 0, 0, 1) 0.2s;
+}
+.card_container::after {
+    content: "Filtrar";
+  
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    padding: 0rem;
+    box-sizing: border-box;
+    width: 0rem;
+    aspect-ratio: 1;
+    background-color: hsl(240, 15%, 9%, 0.5);
+  
+    font-size: 0rem;
+    font-weight: bold;
+    color: var(--white);
+    text-align: center;
+  
+    border-radius: 50%;
+    transform-origin: center;
+  
+    transition: all 1s cubic-bezier(1, 0, 0, 1) 0s;
+}
+  
+.card:hover .card_container::before {
+    width: 22.5rem;
+  
+    transition: all 1s cubic-bezier(1, 0, 0, 1) 0s;
+}
+.card:hover .card_container::after {
+    padding: 1rem;
+    width: 5rem;
+  
+    font-size: 0.75rem;
+  
+    transition: all 0.3s ease-in-out 0.4s;
+}
+  
+.card_container .image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    width: 3rem;
+    fill: var(--black);
+}
+  
 .titulo-principal {
     color: var(--clr-main);
     margin-bottom: 2rem;
@@ -146,10 +314,13 @@ main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
+    margin-top: 20px;
 }
 
 .producto-imagen {
-    max-width: 100%;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
     border-radius: 1rem;
 }
 
@@ -163,13 +334,15 @@ main {
     display: flex;
     flex-direction: column;
     gap: .25rem;
+    height: 120px;
+    box-sizing: border-box;
 }
 
 .producto-titulo {
     font-size: 1rem;
 }
 
-.producto-agregar {
+.producto-agregar, .producto-descripcion{
     border: 0;
     background-color: var(--clr-white);
     color: var(--clr-main);
@@ -181,7 +354,7 @@ main {
     transition: background-color .2s, color .2s;
 }
 
-.producto-agregar:hover {
+.producto-agregar:hover, .producto-descripcion:hover{
     background-color: var(--clr-main);
     color: var(--clr-white);
 }
@@ -385,8 +558,6 @@ main {
     
 
 }
-
-
 
 @media screen and (max-width: 400px) {
     .contenedor-productos {
