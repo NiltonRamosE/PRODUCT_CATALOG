@@ -2,9 +2,9 @@ const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const containCategoryCards = document.querySelector("#contain-category-cards");
 const contenedorProductos = document.querySelector("#contenedor-productos");
 /*URL para pruebas*/
-const baseUrl = 'http://127.0.0.1:8000';
+//const baseUrl = 'http://127.0.0.1:8000';
 /*URL para produccion*/
-//const baseUrl = 'https://productcatalog-production.up.railway.app';
+const baseUrl = 'https://productcatalog-production.up.railway.app';
 
 fetch(`${baseUrl}/allproducts`)
     .then(response => response.json())
