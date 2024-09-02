@@ -8,7 +8,7 @@ const contenedorCarritoComprado = document.querySelector("#carrito-comprado");
 let botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");
 const botonVaciar = document.querySelector("#carrito-acciones-vaciar");
 const contenedorTotal = document.querySelector("#total");
-const botonComprar = document.querySelector("#carrito-acciones-comprar");
+//const botonComprar = document.querySelector("#carrito-acciones-comprar");
 
 
 function cargarProductosCarrito() {
@@ -26,10 +26,10 @@ function cargarProductosCarrito() {
             const div = document.createElement("div");
             div.classList.add("carrito-producto");
             div.innerHTML = `
-                <img class="carrito-producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
+                <img class="carrito-producto-imagen" src="${producto.image}" alt="${producto.name}">
                 <div class="carrito-producto-titulo">
                     <small>Título</small>
-                    <h3>${producto.titulo}</h3>
+                    <h3>${producto.name}</h3>
                 </div>
                 <div class="carrito-producto-cantidad">
                     <small>Cantidad</small>
@@ -37,11 +37,11 @@ function cargarProductosCarrito() {
                 </div>
                 <div class="carrito-producto-precio">
                     <small>Precio</small>
-                    <p>$${producto.precio}</p>
+                    <p>S/. ${producto.price}</p>
                 </div>
                 <div class="carrito-producto-subtotal">
                     <small>Subtotal</small>
-                    <p>$${producto.precio * producto.cantidad}</p>
+                    <p>S/. ${(producto.price * producto.cantidad).toFixed(2)}</p>
                 </div>
                 <button class="carrito-producto-eliminar" id="${producto.id}"><i class="bi bi-trash-fill"></i></button>
             `;
@@ -76,9 +76,9 @@ function eliminarDelCarrito(e) {
         text: "Producto eliminado",
         duration: 3000,
         close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
         style: {
           background: "linear-gradient(to right, #4b33a8, #785ce9)",
           borderRadius: "2rem",
@@ -86,10 +86,10 @@ function eliminarDelCarrito(e) {
           fontSize: ".75rem"
         },
         offset: {
-            x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-            y: '1.5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
+            x: '1.5rem',
+            y: '1.5rem'
           },
-        onClick: function(){} // Callback after click
+        onClick: function(){}
       }).showToast();
 
     const idBoton = e.currentTarget.id;
@@ -124,10 +124,10 @@ function vaciarCarrito() {
 
 
 function actualizarTotal() {
-    const totalCalculado = productosEnCarrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
-    total.innerText = `$${totalCalculado}`;
+    const totalCalculado = productosEnCarrito.reduce((acc, producto) => acc + (producto.price * producto.cantidad), 0);
+    total.innerText = `S/. ${totalCalculado.toFixed(2)}`;
 }
-
+/*
 botonComprar.addEventListener("click", comprarCarrito);
 function comprarCarrito() {
 
@@ -139,4 +139,4 @@ function comprarCarrito() {
     contenedorCarritoAcciones.classList.add("disabled");
     contenedorCarritoComprado.classList.remove("disabled");
 
-}
+}*/
