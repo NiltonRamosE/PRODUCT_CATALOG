@@ -10,7 +10,6 @@ use Database\Seeders\CategorySeeder;
 use Database\Seeders\ImagesProductSeeder;
 use Database\Seeders\ImageSeeder;
 use Database\Seeders\ProductSeeder;
-use Database\Seeders\SubCategoriesProductSeeder;
 use Database\Seeders\SubCategorySeeder;
 
 class DatabaseSeeder extends Seeder
@@ -24,7 +23,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SubCategorySeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(ImageSeeder::class);
-        $this->call(SubCategoriesProductSeeder::class);
         $this->call(ImagesProductSeeder::class);
     }
 }
