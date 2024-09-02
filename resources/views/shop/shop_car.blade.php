@@ -32,7 +32,12 @@
                     <p>Total:</p>
                     <p id="total">$3000</p>
                 </div>
-                <button id="carrito-acciones-comprar" class="carrito-acciones-comprar">Comprar ahora</button>
+                <button id="carrito-acciones-comprar" class="carrito-acciones-comprar" style="pointer-events: none">Comprar ahora</button>
+            </div>
+            <div class="row">
+                <a id="whatsapp-link" href="#" target="_blank" class="whatsapp-button">
+                    <i class="fab fa-whatsapp"></i> Ordena vía WhatsApp
+                </a>
             </div>
         </div>
 
