@@ -6,6 +6,7 @@ const numerito = document.querySelector("#numerito");
 
 const baseUrl = 'https://klimacity.com';
 
+
 fetch(`${baseUrl}/allproducts`)
     .then(response => response.json())
     .then(data => {
