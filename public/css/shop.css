@@ -459,6 +459,32 @@ main {
     display: none;
 }
 
+/* WhatsApp Button */
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+.whatsapp-button i {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.whatsapp-button:hover {
+    background-color: #1EBE57;
+    transform: translateY(-2px);
+}
+
 /*** MEDIA QUERIES ***/
 
 @media screen and (max-width: 850px) {
