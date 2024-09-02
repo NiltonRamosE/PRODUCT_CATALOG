@@ -4,7 +4,7 @@ const contenedorProductos = document.querySelector("#contenedor-productos");
 let botonesAgregar = document.querySelectorAll(".producto-agregar");
 const numerito = document.querySelector("#numerito");
 
-const baseUrl = 'http://127.0.0.1:8000';
+const baseUrl = 'https://klimacity.com/';
 
 fetch(`${baseUrl}/allproducts`)
     .then(response => response.json())
