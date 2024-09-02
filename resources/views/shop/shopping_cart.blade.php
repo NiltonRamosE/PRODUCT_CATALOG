@@ -7,7 +7,7 @@
             </a>
         </li>
         <li>
-            <a class="boton-menu boton-carrito active" href="{{ route('shop.shopcar') }}">
+            <a class="boton-menu boton-carrito active" href="{{ route('shop.shoppingcart') }}">
                 <i class="bi bi-cart-fill"></i> Carrito
             </a>
         </li>
@@ -48,6 +48,6 @@
 
 @section('content-script-shop')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="{{secure_asset ('js/carrito.js')}}"></script>
-    <script src="{{secure_asset ('js/order-whatsapp-car.js')}}"></script>
+    <script src="{{ secure_asset('js/shoppingCart.js') }}"></script>
+    <script src="{{ secure_asset('js/order-whatsapp-cart.js') }}"></script>
 @endsection
