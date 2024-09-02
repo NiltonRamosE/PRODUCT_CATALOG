@@ -10,6 +10,7 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
+        'sub_category_id',
         'code',
         'name',
         'description',

@@ -68,50 +68,6 @@ body {
     margin-bottom: 30px;
 }
 
-/* Breadcrumb Styles */
-.breadcrumb {
-    margin: 20px auto;
-    max-width: 900px;
-    font-size: 14px;
-    color: #777;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.breadcrumb a {
-    color: #6b2caa;
-    text-decoration: none;
-    padding-right: 10px;
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.breadcrumb a:hover {
-    color: #4a188b;
-    transform: translateY(-2px);
-}
-
-.breadcrumb span {
-    color: #555;
-    display: flex;
-    align-items: center;
-}
-
-.breadcrumb a::after {
-    content: '>';
-    color: #6b2caa;
-    font-size: 16px;
-    font-weight: 900;
-    margin-left: 5px;
-}
-
-.breadcrumb a:hover::after {
-    color: #4a188b;
-}
-
 /* Product Container */
 .product-container {
     display: flex;

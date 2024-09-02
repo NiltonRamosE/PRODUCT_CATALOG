@@ -13,7 +13,7 @@
                 En caso de cambiar a la vista index 
                 <a href="{{ route('index') }}"></a>
             --}}
-            <h1 class="logo">Geanela's Shop</h1>
+            <h1 class="logo">KLimaCity</h1>
             <button class="open-menu" id="open-menu">
                 <i class="bi bi-list"></i>
             </button>
@@ -23,14 +23,14 @@
                 <i class="bi bi-x"></i>
             </button>
             <header>
-                <h1 class="logo">Geanela's Shop</h1>
+                <h1 class="logo">KLimaCity</h1>
             </header>
             <nav>
                 @yield('content-nav-shop')
             </nav>
             
             <footer>
-                <p class="texto-footer">© 2024 Geanela's Shop</p>
+                <p class="texto-footer">© 2024 KLimaCity</p>
             </footer>
         </aside>
         <main>

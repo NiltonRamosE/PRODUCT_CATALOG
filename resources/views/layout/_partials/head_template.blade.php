@@ -5,4 +5,4 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 <link rel="icon" href="{{ asset('img/test_icon.svg') }}" type="image/x-icon">
 <link rel="stylesheet" href="{{ asset('css/whatsapp-button-style.css') }}">
-
+<link rel="stylesheet" href="{{ asset('css/breadcrumb-style.css') }}">

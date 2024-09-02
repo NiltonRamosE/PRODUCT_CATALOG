@@ -17,7 +17,7 @@
                 </div>
                 
                 <div class="col text-center">
-                    <h6>ENVÍOS GRATIS SIEMPRE | ENTREGA 24 Hrs</h6>
+                    <h6>ENVÍOS DISPONIBLES SIEMPRE | ENTREGA 24 Hrs</h6>
                 </div>
 
                 <div class="col-auto">
@@ -33,7 +33,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('shop.index') }}">
                 <img src="{{asset('img/test_logo_1.svg')}}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-                Geanela's Shop
+                KLimaCity
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
@@ -53,8 +53,8 @@
     <!-- Breadcrumb -->
     <div class="breadcrumb">
         <a href="{{route('shop.index')}}">Inicio</a>
-        <a href="#">Categoria</a>
-        <a href="#">Subcategoria</a>
+        <a href="#">{{$product->c_name}}</a>
+        <a href="#">{{$product->sc_name}}</a>
         <span>{{$product->name}}</span>
     </div>
 

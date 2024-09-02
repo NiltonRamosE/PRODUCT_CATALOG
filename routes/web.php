@@ -8,11 +8,12 @@ use App\Http\Controllers\ShopProductController;
 })->name('index');*/
 
 Route::get('/', [ShopProductController::class, 'index'])->name('shop.index');
-Route::get('/allproducts', [ShopProductController::class, 'showProducts'])->name('shop.showProducts');
-Route::get('/subcategories/{id}', [ShopProductController::class, 'showSubCategories'])->name('shop.showSubCategories');
-Route::get('/subcategoriesproducts/{id}', [ShopProductController::class, 'showProductByCategories'])->name('shop.showProductByCategories');
+Route::get('/allproducts', [ShopProductController::class, 'showAllProducts'])->name('shop.products');
+Route::get('/card-sub-categories/{id}', [ShopProductController::class, 'showSubCategoriesByCategory'])->name('shop.cardSubCategories');
+Route::get('/products-filter-category/{id}', [ShopProductController::class, 'showProductByCategories'])->name('shop.filterCategories');
+Route::get('/products-filter-sub-category/{id}', [ShopProductController::class, 'showProductBySubCategories'])->name('shop.filterSubCategories');
 
-Route::get('/specificproductdescription/{id}', [ShopProductController::class, 'showProductSpecific'])->name('shop.showProductSpecific');
+Route::get('/product-description/{id}', [ShopProductController::class, 'showProductSpecific'])->name('shop.productSpecific');
 
 Route::get('/shop/shoppingCart', function () {
     return view('shop/shopping_cart');

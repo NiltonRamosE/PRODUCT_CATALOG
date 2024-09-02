@@ -30,7 +30,7 @@ function cargarProductos(productosElegidos) {
         const div = document.createElement("div");
         div.classList.add("producto");
         div.innerHTML = `
-            <a class="button-product-description" href="${baseUrl}/specificproductdescription/${producto.id}">
+            <a class="button-product-description" href="${baseUrl}/product-description/${producto.id}">
                 <img class="producto-imagen" src="${producto.image}" alt="${producto.name}">
             </a>
             <div class="producto-detalles">
@@ -53,7 +53,7 @@ if(botonesCategorias){
         const id = e.currentTarget.id;
     
         if (id !== "todos") {
-            fetch(`${baseUrl}/subcategories/${id}`)
+            fetch(`${baseUrl}/card-sub-categories/${id}`)
                 .then(response => response.json())
                 .then(subcategories => {
                     containCategoryCards.innerHTML = '';
@@ -68,8 +68,9 @@ if(botonesCategorias){
                             <span class="text_span">${subcategory.name}</span>
                         `;
     
-                        const cardContainer = document.createElement('div');
+                        const cardContainer = document.createElement('button');
                         cardContainer.classList.add('card_container');
+                        cardContainer.id=subcategory.id;
                         cardContainer.innerHTML = `
                             <svg class="image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path
@@ -86,16 +87,59 @@ if(botonesCategorias){
                 })
                 .catch(error => console.error('Error fetching subcategories:', error));
     
-            fetch(`${baseUrl}/subcategoriesproducts/${id}`)
+            fetch(`${baseUrl}/products-filter-category/${id}`)
                 .then(response => response.json())
                 .then(productspecific => {
+                    if (productspecific.length > 0 && productspecific[0].c_name) {
+                        actualizarBreadcrumb(productspecific[0].c_name);
+                    }
                     cargarProductos(productspecific);
                 });
         } else {
+            const containBreadcrumb = document.querySelector(".breadcrumb");
+            containBreadcrumb.innerHTML = "";
+            containBreadcrumb.innerHTML = `<a href="${baseUrl}">Inicio</a>`;
             containCategoryCards.innerHTML = '';
             cargarProductos(productos);
         }
     }));
+}
+
+if(containCategoryCards){
+    containCategoryCards.addEventListener("click", function(e) {
+        if (e.target.classList.contains("card_container")) {
+            const id = e.target.id;
+            fetch(`${baseUrl}/products-filter-sub-category/${id}`)
+                .then(response => response.json())
+                .then(productsSubCategory => {
+                    if (productsSubCategory.length > 0 && productsSubCategory[0].sc_name) {
+                        actualizarBreadcrumb(productsSubCategory[0].c_name, productsSubCategory[0].sc_name);
+                    }
+    
+                    cargarProductos(productsSubCategory);
+                })
+                .catch(error => console.error('Error fetching products:', error));
+        }
+    });
+    
+}
+
+function actualizarBreadcrumb(categoryName, subCategoryName = '') {
+    const containBreadcrumb = document.querySelector(".breadcrumb");
+    containBreadcrumb.innerHTML = "";
+    containBreadcrumb.innerHTML = `<a href="${baseUrl}">Inicio</a>`;
+    
+    const categoryLink = document.createElement("a");
+    categoryLink.href = `#`;
+    categoryLink.textContent = categoryName;
+    containBreadcrumb.appendChild(categoryLink);
+
+    if (subCategoryName) {
+        const subCategoryLink = document.createElement("a");
+        subCategoryLink.href = `#`;
+        subCategoryLink.textContent = subCategoryName;
+        containBreadcrumb.appendChild(subCategoryLink);
+    }
 }
 
 function actualizarBotonesAgregar() {

@@ -132,10 +132,6 @@ aside::-webkit-scrollbar-thumb:hover {
     transform: rotateZ(90deg);
 }
 
-.boton-carrito {
-    margin-top: 2rem;
-}
-
 .numerito {
     background-color: var(--clr-white);
     color: var(--clr-main);
@@ -232,6 +228,7 @@ main {
     background-color: var(--pink-500);
   
     border-radius: 0.5rem;
+    border: none;
 }
 .card_container::before {
     content: "";
