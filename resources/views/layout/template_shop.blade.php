@@ -38,7 +38,7 @@
         </main>
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="{{asset ('js/menu.js')}}"></script>
+    <script src="{{ asset('js/menu.js') }}"></script>
     @yield('content-script-shop')
 </body>
 </html>
