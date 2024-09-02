@@ -14,6 +14,6 @@ Route::get('/subcategoriesproducts/{id}', [ShopProductController::class, 'showPr
 
 Route::get('/specificproductdescription/{id}', [ShopProductController::class, 'showProductSpecific'])->name('shop.showProductSpecific');
 
-Route::get('/shop/shopCar', function () {
-    return view('shop/shop_car');
-})->name('shop.shopcar');
+Route::get('/shop/shoppingCart', function () {
+    return view('shop/shopping_cart');
+})->name('shop.shoppingcart');

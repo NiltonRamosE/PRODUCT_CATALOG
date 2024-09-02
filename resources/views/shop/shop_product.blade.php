@@ -11,7 +11,7 @@
         </li>
         @endforeach
         <li>
-            <a class="boton-menu boton-carrito" href="{{ route('shop.shopcar') }}">
+            <a class="boton-menu boton-carrito" href="{{ route('shop.shoppingcart') }}">
                 <i class="bi bi-cart-fill"></i> Carrito <span id="numerito" class="numerito">0</span>
             </a>
         </li>
@@ -26,5 +26,5 @@
 @endsection
 
 @section('content-script-shop')
-    <script src="{{asset ('js/botonCategoria.js')}}"></script>
+    @include('layout._partials.script_shop')
 @endsection
