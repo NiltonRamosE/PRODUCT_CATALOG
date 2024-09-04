@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    @include('layout._partials.head_template')
+    @include('layouts._partials.head_template')
     <link rel="stylesheet" href="{{ asset('css/shop.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>

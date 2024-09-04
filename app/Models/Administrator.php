@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 
-class Administrator extends Model
+class Administrator extends Model implements Authenticatable
 {
-    use HasFactory;
+    use HasFactory, AuthenticatableTrait;
 
     protected $fillable = [
         'name',
@@ -25,8 +27,8 @@ class Administrator extends Model
         'work_email',
         'recovery_email',
     ];
-    /*
+
     public function setPasswordAttribute($value){
         $this->attributes['password'] = bcrypt($value);
-    }*/
+    }
 }

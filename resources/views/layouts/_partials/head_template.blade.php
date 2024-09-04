@@ -3,6 +3,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KLimaCity</title>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-<link rel="icon" href="{{ asset('img/test_icon.svg') }}" type="image/x-icon">
+<link rel="icon" href="{{ asset('img/M9.png') }}">
 <link rel="stylesheet" href="{{ asset('css/whatsapp-button-style.css') }}">
 <link rel="stylesheet" href="{{ asset('css/breadcrumb-style.css') }}">

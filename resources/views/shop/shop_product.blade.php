@@ -1,4 +1,4 @@
-@extends('layout.template_shop')
+@extends('layouts.template_shop')
 @section('content-nav-shop')
     <ul class="menu">
         <li>
@@ -22,7 +22,7 @@
 
     <!-- Breadcrumb -->
     <div class="breadcrumb">
-        <a href="{{route('shop.index')}}">Inicio</a>
+        <a href="{{ route('shop.index') }}">Inicio</a>
         
     </div>
 
@@ -31,5 +31,5 @@
 @endsection
 
 @section('content-script-shop')
-    @include('layout._partials.script_shop')
+    @include('layouts._partials.script_shop')
 @endsection
