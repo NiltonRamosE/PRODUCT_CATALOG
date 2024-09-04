@@ -1,4 +1,4 @@
-@extends('layout.template_shop')
+@extends('layouts.template_shop')
 @section('content-nav-shop')
     <ul>
         <li>
