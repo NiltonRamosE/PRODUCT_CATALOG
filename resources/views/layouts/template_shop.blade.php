@@ -2,14 +2,14 @@
 <html lang="es">
 <head>
     @include('layouts._partials.head_template')
-    <link rel="stylesheet" href="{{ asset('css/shop.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/shop.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body>
 
     <div class="wrapper">
         <header class="header-mobile">
-            <img src="{{ asset('img/M10.png') }}" alt="" class="logo">
+            <img src="{{ secure_asset('img/M10.png') }}" alt="" class="logo">
             <button class="open-menu" id="open-menu">
                 <i class="bi bi-list"></i>
             </button>
@@ -19,7 +19,7 @@
                 <i class="bi bi-x"></i>
             </button>
             <header>
-                <img src="{{ asset('img/M10.png') }}" alt="" class="logo">
+                <img src="{{ secure_asset('img/M10.png') }}" alt="" class="logo">
             </header>
             <nav>
                 @yield('content-nav-shop')
@@ -34,7 +34,7 @@
         </main>
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="{{ asset('js/menu.js') }}"></script>
+    <script src="{{ secure_asset('js/menu.js') }}"></script>
     @yield('content-script-shop')
 </body>
 </html>

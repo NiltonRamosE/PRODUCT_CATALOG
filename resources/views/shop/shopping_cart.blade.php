@@ -48,6 +48,6 @@
 
 @section('content-script-shop')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="{{ asset('js/shoppingCart.js') }}"></script>
-    <script src="{{ asset('js/order-whatsapp-cart.js') }}"></script>
+    <script src="{{ secure_asset('js/shoppingCart.js') }}"></script>
+    <script src="{{ secure_asset('js/order-whatsapp-cart.js') }}"></script>
 @endsection

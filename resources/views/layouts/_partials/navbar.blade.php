@@ -4,7 +4,7 @@
     <!-- Sidenav Toggle Button-->
     <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0" id="sidebarToggle"><i data-feather="menu"></i></button>
     <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="{{ route('dashboard.index') }}">
-        <img src="{{ asset('img/M4.png') }}" alt="" style="height: 50px;">
+        <img src="{{ secure_asset('img/M4.png') }}" alt="" style="height: 50px;">
     </a>
     
     <!-- Navbar Items-->
@@ -14,13 +14,13 @@
         <li class="nav-item dropdown no-caret dropdown-user me-3 me-lg-4">
             <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 
-                <img class="img-fluid" src="{{ asset('img/usuario_defecto.png') }}">
+                <img class="img-fluid" src="{{ secure_asset('img/usuario_defecto.png') }}">
                 
             </a>
             <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownUserImage">
                 <h6 class="dropdown-header d-flex align-items-center">
 
-                    <img class="dropdown-user-img" src="{{ asset('img/usuario_defecto.png') }}">
+                    <img class="dropdown-user-img" src="{{ secure_asset('img/usuario_defecto.png') }}">
                     <div class="dropdown-user-details">
                         @if (session('user'))
                             <div class="dropdown-user-details-name">{{ ucwords(strtolower(session('user')->paternal_surname . ' ' . session('user')->maternal_surname)) }}</div>

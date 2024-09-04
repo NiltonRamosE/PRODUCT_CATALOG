@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" href="{{ asset('img/M9.png') }}">
-    <link rel="stylesheet" href="{{ asset('css/login-style.css') }}">
+    <link rel="icon" href="{{ secure_asset('img/M9.png') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/login-style.css') }}">
     <title>Login</title>
 </head>
 <body>
@@ -107,6 +107,6 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('js/login-hide.js') }}"></script>
+    <script src="{{ secure_asset('js/login-hide.js') }}"></script>
 </body>
 </html>
