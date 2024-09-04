@@ -28,9 +28,8 @@ Route::get('/shop/shoppingCart', function () {
 
 Route::middleware([RedirectIfAuthenticated::class])->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login.index');
-    Route::post('/login-init', [LoginController::class, 'iniciarSesion'])->name('login.init');
 });
-
+Route::post('/login-init', [LoginController::class, 'iniciarSesion'])->name('login.init');
 Route::get('/login-out', [LoginController::class, 'cerrarSesion'])->name('login.out');
 
 Route::middleware([CheckAdmin::class])->group(function () {

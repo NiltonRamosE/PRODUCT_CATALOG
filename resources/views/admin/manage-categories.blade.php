@@ -107,7 +107,7 @@
                                                 <i class="fa-solid fa-pencil me-3"></i>
                                                 Editar Registro
                                             </button>
-                                        </li>
+                                        </li>                                  
                                         <li>
                                             <a class="dropdown-item text-gray-700" href="{{ route('category.destroy', ['id' => $category->id]) }}">
                                                 <i class="fa-regular fa-trash-can me-3"></i>
