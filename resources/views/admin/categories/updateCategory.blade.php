@@ -1,5 +1,5 @@
 <!-- Modal para actualizar una categoría-->
-<div class="modal fade" id="updateCategoryModal_{{$category->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="updateCategoryModal_{{ $category->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -12,11 +12,11 @@
 
                     <div class="input-group mb-3" >
                         <span class="input-group-text">Nombre</span>
-                        <input type="text" class="form-control" placeholder="Ingrese una categoría" aria-label="Username" name="nombre" value="{{$category->name}}" required>
+                        <input type="text" class="form-control" placeholder="Ingrese una categoría" aria-label="Username" name="nombre" value="{{ $category->name }}" required>
                     </div>
                     
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="addClt_nombre" placeholder="" name ="descripcion" value="{{$category->description}}" required>
+                        <input type="text" class="form-control" id="addClt_nombre" placeholder="" name ="descripcion" value="{{ $category->description }}" required>
                         <label for="floatingInput">Descripción</label>
                     </div>
 

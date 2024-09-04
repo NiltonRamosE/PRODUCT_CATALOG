@@ -8,7 +8,6 @@ use App\Models\SubCategory;
 use App\Models\Image;
 use App\Models\ImagesProduct;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
-use Illuminate\Support\Facades\Log;
 use Cloudinary\Api\Admin\AdminApi;
 use Illuminate\Http\UploadedFile;
 
@@ -80,7 +79,6 @@ class ProductController extends Controller
     {
         try{
 
-            log::info('Contenido de la solicitud:', ['request' => $request->all()]);
             $validatedData = $this->validateProductRequest($request);
 
             $product = Product::find($id);
@@ -127,6 +125,7 @@ class ProductController extends Controller
             }else{
                 $this->createImagesProducts($request, $product);
             }
+
             return redirect()->back()->with('mensaje', 'El producto se ha actualizado correctamente.');
         } catch (\Illuminate\Validation\ValidationException $e) {
             return redirect()->back()->with('mensaje', 'No se pudo actualizar el producto, verifica si los campos están correctos.' . $e->getMessage());
@@ -156,6 +155,7 @@ class ProductController extends Controller
         }
 
         Product::destroy($id);
+        
         return redirect()->back()->with('mensaje', 'Producto eliminado exitosamente.');
     }
 

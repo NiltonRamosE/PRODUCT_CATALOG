@@ -10,10 +10,6 @@ use App\Http\Controllers\ProductController;
 use App\Http\Middleware\CheckAdmin;
 use App\Http\Middleware\RedirectIfAuthenticated;
 
-/*Route::get('/', function () {
-    return view('index');
-})->name('index');*/
-
 Route::get('/', [ShopProductController::class, 'index'])->name('shop.index');
 Route::get('/allproducts', [ShopProductController::class, 'showAllProducts'])->name('shop.products');
 Route::get('/card-sub-categories/{id}', [ShopProductController::class, 'showSubCategoriesByCategory'])->name('shop.cardSubCategories');

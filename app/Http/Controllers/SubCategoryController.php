@@ -24,10 +24,7 @@ class SubCategoryController extends Controller
     public function store(Request $request)
     {
         try{
-            $request->validate([
-                'nombre' => 'required|string|max:35',
-                'category_id' => 'required|integer',
-            ]);
+            $validatedData = $this->validateSubCategoryRequest($request);
 
             $nombreSubCategoria = $request->input('nombre');
 
@@ -38,7 +35,6 @@ class SubCategoryController extends Controller
             SubCategory::create([
                 'name' => $nombreSubCategoria,
                 'category_id' => $request->input('category_id'),
-
             ]);
 
             return redirect()->back()->with('mensaje', 'La sub categoría se ha creado correctamente.');
@@ -50,10 +46,7 @@ class SubCategoryController extends Controller
     public function update(Request $request, string $id)
     {
         try{
-            $request->validate([
-                'nombre' => 'required|string|max:35',
-                'category_id' => 'required|integer',
-            ]);
+            $validatedData = $this->validateSubCategoryRequest($request);
 
             $nombreSubCategoria = $request->input('nombre');
 
@@ -62,9 +55,10 @@ class SubCategoryController extends Controller
             }
 
             $subcategory = SubCategory::find($id);
-            $subcategory->name = $nombreSubCategoria;
-            $subcategory->category_id = $request->input('category_id');
-            $subcategory->save();
+            $subcategory->update([
+                'name' =>  $nombreSubCategoria,
+                'category_id' => $request->input('category_id'),
+            ]);
 
             return redirect()->back()->with('mensaje', 'La sub categoría se ha actualizado correctamente.');
         } catch (\Illuminate\Validation\ValidationException $e) {
@@ -81,5 +75,13 @@ class SubCategoryController extends Controller
     public function searchRepeatedSubcategories(string $name): bool
     {
         return SubCategory::where('name', $name)->exists();
+    }
+
+    protected function validateSubCategoryRequest(Request $request)
+    {
+        $request->validate([
+            'nombre' => 'required|string|max:35',
+            'category_id' => 'required|integer',
+        ]);
     }
 }

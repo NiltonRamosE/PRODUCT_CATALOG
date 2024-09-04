@@ -13,12 +13,14 @@ class ShopProductController extends Controller
     public function index()
     {
         $categories = Category::all();
+
         return view('shop.shop_product', compact('categories'));
     }
 
     public function showSubCategoriesByCategory(string $id)
     {
         $subCategories = SubCategory::where('category_id', $id)->get();
+        
         return response()->json($subCategories);
     }
 

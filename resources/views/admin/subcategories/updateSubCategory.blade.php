@@ -1,5 +1,5 @@
 <!-- Modal para actualizar una subcategoría-->
-<div class="modal fade" id="updateSubCategoryModal_{{$subcategory->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="updateSubCategoryModal_{{ $subcategory->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -12,7 +12,7 @@
 
                     <div class="input-group mb-3" >
                         <span class="input-group-text">Nombre</span>
-                        <input type="text" class="form-control" placeholder="Ingrese una sub categoría" aria-label="Username" name="nombre" value="{{$subcategory->name}}" required>
+                        <input type="text" class="form-control" placeholder="Ingrese una sub categoría" aria-label="Username" name="nombre" value="{{ $subcategory->name }}" required>
                     </div>
                     
                     <select class="form-select mb-3" aria-label="Default select example" name="category_id" required>

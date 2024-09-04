@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (!fileInputsDiv || !addFileInputBtn) return;
 
-        // Función para actualizar el contador y los nombres de los inputs
         function updateFileInputNames() {
             const fileInputWrappers = fileInputsDiv.querySelectorAll('.file-input-wrapper');
             fileInputWrappers.forEach((wrapper, index) => {
@@ -16,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        // Añadir nuevo input
         addFileInputBtn.addEventListener('click', function() {
             const fileCount = fileInputsDiv.querySelectorAll('.file-input-wrapper').length;
 
@@ -42,17 +40,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 wrapper.appendChild(removeButton);
                 fileInputsDiv.appendChild(wrapper);
 
-                // Desactivar botón si se llega al límite
                 if (fileCount + 1 === maxFiles) {
                     addFileInputBtn.disabled = true;
                 }
 
-                // Añadir evento para eliminar el input
                 removeButton.addEventListener('click', function() {
                     wrapper.remove();
                     updateFileInputNames();
 
-                    // Reactivar botón si hay menos de 5 inputs
                     if (fileInputsDiv.querySelectorAll('.file-input-wrapper').length < maxFiles) {
                         addFileInputBtn.disabled = false;
                     }
@@ -60,14 +55,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Evento para eliminar el input si se presiona "Eliminar"
         fileInputsDiv.addEventListener('click', function(event) {
             if (event.target.classList.contains('remove-file-input')) {
                 const wrapper = event.target.closest('.file-input-wrapper');
                 wrapper.remove();
                 updateFileInputNames();
 
-                // Reactivar botón si hay menos de 5 inputs
                 if (fileInputsDiv.querySelectorAll('.file-input-wrapper').length < maxFiles) {
                     addFileInputBtn.disabled = false;
                 }
@@ -75,15 +68,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Inicializa para el modal de agregar
     initFileInputHandlers('addProductsModal');
 
-    // Escucha cuando se muestra un modal
     document.addEventListener('shown.bs.modal', function (event) {
         var modal = event.target;
         var modalId = modal.id;
         
-        // Inicializa para el modal de actualización, basado en el ID del modal
         if (modalId.startsWith('updateProductModal')) {
             initFileInputHandlers(modalId);
         }

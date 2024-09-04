@@ -98,22 +98,6 @@
             @else
                 <p class="agotado">Producto agotado</p>
             @endif
-            
-            <!--
-            <label for="color">Selecciona el color:</label>
-            <select id="color" class="feature-product">
-                <option value="black">Negro</option>
-                <option value="blue">Azul</option>
-            </select>
-            <label for="size">Selecciona la talla:</label>
-            <select id="size" class="feature-product">
-                <option value="s">S</option>
-                <option value="m">M</option>
-                <option value="l">L</option>
-                <option value="xl">XL</option>
-                <option value="xxl">XXL</option>
-            </select>
-            -->
             <div class="row">
                 <button id="{{ $product->id }}" class="button-add-car" {{ !$product->active ? 'disabled' : '' }}>Añadir al carrito</button>
             </div>

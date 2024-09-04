@@ -1,5 +1,5 @@
 <!-- Modal para actualizar un producto-->
-<div class="modal fade" id="updateProductModal_{{$product->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="updateProductModal_{{ $product->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -11,17 +11,17 @@
                     @csrf
                     <div class="input-group mb-3">
                         <span class="input-group-text">Nombre</span>
-                        <input type="text" class="form-control" placeholder="Ingrese un producto" aria-label="Username" name="nombre" value ="{{$product->name}}" required>
+                        <input type="text" class="form-control" placeholder="Ingrese un producto" aria-label="Username" name="nombre" value ="{{ $product->name }}" required>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="addClt_nombre" placeholder="" name ="descripcion" value ="{{$product->description}}" required>
+                        <input type="text" class="form-control" id="addClt_nombre" placeholder="" name ="descripcion" value ="{{ $product->description }}" required>
                         <label for="floatingInput">Descripción</label>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Precio</span>
-                        <input type="text" class="form-control" placeholder="" aria-label="Username" name="precio" value ="{{$product->price}}" required>
+                        <input type="text" class="form-control" placeholder="" aria-label="Username" name="precio" value ="{{ $product->price }}" required>
                         <span class="input-group-text">Stock</span>
-                        <input type="text" class="form-control" placeholder="" aria-label="Username" name="stock" value ="{{$product->stock}}" required>
+                        <input type="text" class="form-control" placeholder="" aria-label="Username" name="stock" value ="{{ $product->stock }}" required>
                     </div>
                     <select class="form-select mb-3" aria-label="Default select example" name="sub_category_id" required>
                         <option selected>Selecciona la categoría</option>
