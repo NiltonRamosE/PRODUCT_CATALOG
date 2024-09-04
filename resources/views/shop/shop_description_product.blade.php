@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    @include('layout._partials.head_template')
-    <link rel="stylesheet" href="{{ secure_asset('css/description_product.css') }}">
+    @include('layouts._partials.head_template')
+    <link rel="stylesheet" href="{{ asset('css/description_product.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -32,8 +32,8 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('shop.index') }}">
-                <img src="{{secure_asset('img/test_logo_1.svg')}}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-                KLimaCity
+                <img src="{{ asset('img/M4.png') }}" alt="Logo" width="" height="50" class="d-inline-block align-text-top">
+                
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
@@ -52,10 +52,10 @@
 
     <!-- Breadcrumb -->
     <div class="breadcrumb">
-        <a href="{{route('shop.index')}}">Inicio</a>
-        <a href="#">{{$product->c_name}}</a>
-        <a href="#">{{$product->sc_name}}</a>
-        <span>{{$product->name}}</span>
+        <a href="{{ route('shop.index') }}">Inicio</a>
+        <a href="#">{{ $product->c_name }}</a>
+        <a href="#">{{ $product->sc_name }}</a>
+        <span>{{ $product->name }}</span>
     </div>
 
     <!-- Product Section -->
@@ -74,10 +74,10 @@
         </div>
               
         <div class="product-details" data-product-id="{{ $product->id }}" data-product-name="{{ $product->name }}" data-product-price="{{ $product->price }}">
-            <h1>{{$product->name}}</h1>
-            <p class="price">S/. {{$product->price}} soles</p>
+            <h1>{{ $product->name }}</h1>
+            <p class="price">S/. {{ $product->price }} soles</p>
             <p class="description">
-                {{$product->description}}
+                {{ $product->description }}
             </p>
             <p class="description">
                 @if($product->active)
@@ -88,7 +88,7 @@
                     <i class="fas fa-times-circle" style="color: red;"></i>
                 @endif
             </p>
-            <p class="description">Cantidad: {{$product->stock}}</p>
+            <p class="description">Cantidad: {{ $product->stock }}</p>
 
             @if($product->stock > 0)
                 <div class="cantidad-container">
@@ -98,22 +98,6 @@
             @else
                 <p class="agotado">Producto agotado</p>
             @endif
-            
-            <!--
-            <label for="color">Selecciona el color:</label>
-            <select id="color" class="feature-product">
-                <option value="black">Negro</option>
-                <option value="blue">Azul</option>
-            </select>
-            <label for="size">Selecciona la talla:</label>
-            <select id="size" class="feature-product">
-                <option value="s">S</option>
-                <option value="m">M</option>
-                <option value="l">L</option>
-                <option value="xl">XL</option>
-                <option value="xxl">XXL</option>
-            </select>
-            -->
             <div class="row">
                 <button id="{{ $product->id }}" class="button-add-car" {{ !$product->active ? 'disabled' : '' }}>Añadir al carrito</button>
             </div>
@@ -126,8 +110,8 @@
         </div>
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    @include('layout._partials.script_shop')
-    <script src="{{ secure_asset('js/description_product.js')}} "></script>
-    <script src="{{ secure_asset('js/order-whatsapp.js')}} "></script>
+    @include('layouts._partials.script_shop')
+    <script src="{{ asset('js/description_product.js') }}"></script>
+    <script src="{{ asset('js/order-whatsapp.js') }}"></script>
 </body>
 </html>

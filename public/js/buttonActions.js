@@ -36,7 +36,7 @@ function cargarProductos(productosElegidos) {
             <div class="producto-detalles">
                 <h3 class="producto-titulo">${producto.name}</h3>
                 <p class="producto-precio">S/. ${producto.price}</p>
-                <button class="producto-agregar" id="${producto.id}">Agregar</button>
+                <button class="producto-agregar" id="${producto.id}" ${producto.stock === 0 ? 'disabled' : ''}>Agregar</button>
             </div>
         `;
         contenedorProductos.append(div);

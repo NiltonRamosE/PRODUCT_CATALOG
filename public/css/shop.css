@@ -71,8 +71,7 @@ aside::-webkit-scrollbar-thumb:hover {
 }
 
 .logo {
-    font-weight: 400;
-    font-size: 1.3rem;
+    width: 90%;
 }
 
 .menu {
@@ -487,6 +486,9 @@ main {
 @media screen and (max-width: 850px) {
     .contenedor-productos {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+    .logo {
+        width: 80%;
     }
 }
 
