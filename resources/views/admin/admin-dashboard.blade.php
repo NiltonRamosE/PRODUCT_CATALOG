@@ -31,7 +31,11 @@
             <div class="card-body p-5">
                 <div class="row align-items-center justify-content-between">
                     <div class="col">
-                        <h2 class="text-primary mb-4">¡Bienvenido de vuelta!</h2>
+                        @if (session('user'))
+                            <h2 class="text-primary mb-4">¡Bienvenido de vuelta, {{ ucwords(strtolower(session('user')->name . ' ' . session('user')->paternal_surname . ' ' . session('user')->maternal_surname)) }}!</h2>
+                        @else
+                            <h2 class="text-primary mb-4">¡Bienvenido de vuelta!</h2>
+                        @endif
                         <p class="text-gray-700">Puedes iniciar a gestionar tu tienda en línea </p>
                         <p class="text-gray-700">¿Comenzamos?</p>
                         <a class="btn btn-primary p-3" href="">

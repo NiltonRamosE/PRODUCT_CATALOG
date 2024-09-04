@@ -21,14 +21,20 @@
                 <h6 class="dropdown-header d-flex align-items-center">
 
                     <img class="dropdown-user-img" src="{{ asset('img/usuario_defecto.png') }}">
-
+                    <div class="dropdown-user-details">
+                        @if (session('user'))
+                            <div class="dropdown-user-details-name">{{ ucwords(strtolower(session('user')->paternal_surname . ' ' . session('user')->maternal_surname)) }}</div>
+                            <div class="dropdown-user-details-email">{{ strtolower(session('user')->work_email) }}</div>
+                        @endif
+                        
+                    </div>
                 </h6>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="">
                     <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
                     Mi perfil
                 </a>
-                <a class="dropdown-item" href="">
+                <a class="dropdown-item" href="{{ route('login.out') }}">
                     <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
                     Cerrar sesión
                 </a>

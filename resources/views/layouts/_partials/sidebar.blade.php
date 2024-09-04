@@ -27,7 +27,9 @@
         <div class="sidenav-footer">
             <div class="sidenav-footer-content">
                 <div class="sidenav-footer-subtitle">Logueado como:</div>
-                <div class="sidenav-footer-title"></div>
+                @if (session('user'))
+                    <div class="sidenav-footer-title">{{ strtolower(session('user')->work_email) }}</div>
+                @endif
             </div>
         </div>
     </nav>
