@@ -9,20 +9,16 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('sub_sub_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 35)->index();
             $table->foreignId('sub_category_id')->constrained()->onDelete('cascade');
-            $table->string('code', 16)->unique(); //ELECT_TM_00001
-            $table->string('name', 100);
-            $table->text('description')->nullable();
-            $table->decimal('price');
-            $table->boolean('active');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('sub_sub_categories');
     }
 };

@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\SubSubCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Middleware\CheckAdmin;
 use App\Http\Middleware\RedirectIfAuthenticated;
@@ -13,8 +14,10 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 Route::get('/', [ShopProductController::class, 'index'])->name('shop.index');
 Route::get('/allproducts', [ShopProductController::class, 'showAllProducts'])->name('shop.products');
 Route::get('/card-sub-categories/{id}', [ShopProductController::class, 'showSubCategoriesByCategory'])->name('shop.cardSubCategories');
+Route::get('/card-sub-sub-categories/{id}', [ShopProductController::class, 'showSubSubCategoriesBySubCategory'])->name('shop.cardSubSubCategories');
 Route::get('/products-filter-category/{id}', [ShopProductController::class, 'showProductByCategories'])->name('shop.filterCategories');
 Route::get('/products-filter-sub-category/{id}', [ShopProductController::class, 'showProductBySubCategories'])->name('shop.filterSubCategories');
+Route::get('/products-filter-sub-sub-category/{id}', [ShopProductController::class, 'showProductBySubSubCategories'])->name('shop.filterSubSubCategories');
 
 Route::get('/product-description/{id}', [ShopProductController::class, 'showProductSpecific'])->name('shop.productSpecific');
 
@@ -40,6 +43,11 @@ Route::middleware([CheckAdmin::class])->group(function () {
     Route::post('/subcategory/add', [SubCategoryController::class, 'store'])->name('subcategory.store');
     Route::post('/subcategory/update/{id}', [SubCategoryController::class, 'update'])->name('subcategory.update');
     Route::get('/subcategory/delete/{id}', [SubCategoryController::class, 'destroy'])->name('subcategory.destroy');
+
+    Route::get('/subsubcategory', [SubSubCategoryController::class, 'index'])->name('subsubcategory.index');
+    Route::post('/subsubcategory/add', [SubSubCategoryController::class, 'store'])->name('subsubcategory.store');
+    Route::post('/subsubcategory/update/{id}', [SubSubCategoryController::class, 'update'])->name('subsubcategory.update');
+    Route::get('/subsubcategory/delete/{id}', [SubSubCategoryController::class, 'destroy'])->name('subsubcategory.destroy');
 
     Route::get('/product', [ProductController::class, 'index'])->name('product.index');
     Route::post('/product/add', [ProductController::class, 'store'])->name('product.store');

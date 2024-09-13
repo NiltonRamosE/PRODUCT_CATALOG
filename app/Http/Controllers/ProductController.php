@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\SubCategory;
+use App\Models\SubSubCategory;
 use App\Models\Image;
 use App\Models\ImagesProduct;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
@@ -16,8 +17,8 @@ class ProductController extends Controller
     
     public function index()
     {
-        $products = Product::select('products.*', 'sc.id as sc_id', 'sc.name as subcategory_name')
-        ->join('sub_categories as sc', 'sc.id', '=', 'products.sub_category_id')
+        $products = Product::select('products.*', 'ssc.id as ssc_id', 'ssc.name as subsubcategory_name')
+        ->join('sub_sub_categories as ssc', 'ssc.id', '=', 'products.sub_sub_category_id')
         ->get();
 
         $images = Image::select('images.*', 'images_products.product_id')
@@ -25,9 +26,9 @@ class ProductController extends Controller
         ->get()
         ->groupBy('product_id');
 
-        $subcategories = SubCategory::all();
+        $subsubcategories = SubSubCategory::all();
 
-        return view('admin.manage-products', compact('products', 'subcategories', 'images'));
+        return view('admin.manage-products', compact('products', 'subsubcategories', 'images'));
     }
 
     public function store(Request $request)
@@ -36,26 +37,28 @@ class ProductController extends Controller
 
             $validatedData = $this->validateProductRequest($request);
 
-            $sub_category_id = $request->input('sub_category_id');
+            $sub_sub_category_id = $request->input('sub_sub_category_id');
 
-            $subCategory = SubCategory::select('sub_categories.name as subcategory_name', 'c.name as category_name')
-            ->join('categories as c', 'c.id', '=', 'sub_categories.category_id')
-            ->where('sub_categories.id', $sub_category_id)
+            $subsubCategory = SubSubCategory::select('sub_sub_categories.name as subsubcategory_name','sc.name as subcategory_name', 'c.name as category_name')
+            ->join('sub_categories as sc', 'sc.id', '=', 'sub_sub_categories.sub_category_id')
+            ->join('categories as c', 'c.id', '=', 'sc.category_id')
+            ->where('sub_sub_categories.id', $sub_sub_category_id)
             ->first();
 
             // Generar el código
-            $categoryName = strtoupper(substr($subCategory->category_name, 0, 5));
+            $categoryName = strtoupper(substr($subsubCategory->category_name, 0, 5));
             $subcategoryInitials = strtoupper(implode('', array_map(function($word) {
                 return $word[0];
-            }, explode(' ', $subCategory->subcategory_name))));
+            }, explode(' ', $subsubCategory->subcategory_name))));
+            $subsubcategoryName = strtoupper(substr($subsubCategory->subsubcategory_name, 0, 3));
             
             $latestProduct = Product::latest('id')->first();
             $nextNumber = $latestProduct ? str_pad((int)substr($latestProduct->code, -5) + 1, 5, '0', STR_PAD_LEFT) : '00001';
 
-            $code = $categoryName . '_' . $subcategoryInitials . '_' . $nextNumber;
+            $code = $categoryName . '_' . $subcategoryInitials. '_' . $subsubcategoryName . '_' . $nextNumber;
 
             $newProduct = Product::create([
-                'sub_category_id' => $sub_category_id,
+                'sub_sub_category_id' => $sub_sub_category_id,
                 'code' => $code,
                 'name' => $request->input('nombre'),
                 'description' => $request->input('descripcion'),
@@ -80,7 +83,7 @@ class ProductController extends Controller
             $product = Product::find($id);
 
             $product->update([
-                'sub_category_id' => $request->input('sub_category_id'),
+                'sub_sub_category_id' => $request->input('sub_sub_category_id'),
                 'code' => $product->code,
                 'name' => $request->input('nombre'),
                 'description' => $request->input('descripcion'),
@@ -176,7 +179,7 @@ class ProductController extends Controller
     protected function validateProductRequest(Request $request)
     {
         return $request->validate([
-            'sub_category_id' => 'required|exists:sub_categories,id',
+            'sub_sub_category_id' => 'required|exists:sub_sub_categories,id',
             'nombre' => 'required|string|max:100',
             'descripcion' => 'nullable|string',
             'precio' => 'required|numeric|min:0',

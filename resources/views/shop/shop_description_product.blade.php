@@ -55,6 +55,7 @@
         <a href="{{ route('shop.index') }}">Inicio</a>
         <a href="#">{{ $product->c_name }}</a>
         <a href="#">{{ $product->sc_name }}</a>
+        <a href="#">{{ $product->ssc_name }}</a>
         <span>{{ $product->name }}</span>
     </div>
 

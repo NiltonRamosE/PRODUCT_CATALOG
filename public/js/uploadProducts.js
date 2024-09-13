@@ -1,6 +1,14 @@
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
-const containCategoryCards = document.querySelector("#contain-category-cards");
+const containCategoryCards = document.querySelector("#containCategoryCards");
 const contenedorProductos = document.querySelector("#contenedor-productos");
+
+function scrollLeft() {
+    containCategoryCards.scrollLeft -= 100;
+}
+
+function scrollRight() {
+    containCategoryCards.scrollLeft += 100;
+}
 
 fetch(`${baseUrl}/allproducts`)
     .then(response => response.json())
@@ -83,6 +91,24 @@ if(botonesCategorias){
 
 function filterSubCategory(e){
     const id = e.target.id;
+    fetch(`${baseUrl}/card-sub-sub-categories/${id}`)
+        .then(response => response.json())
+        .then(subsubcategories => {
+            containCategoryCards.innerHTML = '';
+                        
+            subsubcategories.forEach(subsubcategory => {
+                const subsubCategoryButton = document.createElement('button');
+                subsubCategoryButton.classList.add('button-container');
+                subsubCategoryButton.id=subsubcategory.id;
+                subsubCategoryButton.innerHTML = `${subsubcategory.name}`;
+                            
+                subsubCategoryButton.addEventListener('click', filterSubSubCategory);
+
+                containCategoryCards.appendChild(subsubCategoryButton);
+            });
+        })
+        .catch(error => console.error('Error fetching subcategories:', error));
+
     fetch(`${baseUrl}/products-filter-sub-category/${id}`)
         .then(response => response.json())
         .then(productsSubCategory => {
@@ -95,7 +121,22 @@ function filterSubCategory(e){
         .catch(error => console.error('Error fetching products:', error));
 }
 
-function actualizarBreadcrumb(categoryName, subCategoryName = '') {
+function filterSubSubCategory(e){
+    const id = e.target.id;
+
+    fetch(`${baseUrl}/products-filter-sub-sub-category/${id}`)
+        .then(response => response.json())
+        .then(productsSubSubCategory => {
+            if (productsSubSubCategory.length > 0 && productsSubSubCategory[0].ssc_name) {
+                actualizarBreadcrumb(productsSubSubCategory[0].c_name, productsSubSubCategory[0].sc_name, productsSubSubCategory[0].ssc_name);
+            }
+    
+            cargarProductos(productsSubSubCategory);
+        })
+        .catch(error => console.error('Error fetching products:', error));
+}
+
+function actualizarBreadcrumb(categoryName, subCategoryName = '', subsubCategoryName = '') {
     const containBreadcrumb = document.querySelector(".breadcrumb");
     containBreadcrumb.innerHTML = "";
     containBreadcrumb.innerHTML = `<a href="${baseUrl}">Inicio</a>`;
@@ -110,5 +151,12 @@ function actualizarBreadcrumb(categoryName, subCategoryName = '') {
         subCategoryLink.href = `#`;
         subCategoryLink.textContent = subCategoryName;
         containBreadcrumb.appendChild(subCategoryLink);
+    }
+
+    if (subsubCategoryName) {
+        const subsubCategoryLink = document.createElement("a");
+        subsubCategoryLink.href = `#`;
+        subsubCategoryLink.textContent = subsubCategoryName;
+        containBreadcrumb.appendChild(subsubCategoryLink);
     }
 }

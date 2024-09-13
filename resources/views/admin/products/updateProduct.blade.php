@@ -21,11 +21,11 @@
                         <span class="input-group-text">Precio</span>
                         <input type="text" class="form-control" placeholder="" aria-label="Username" name="precio" value ="{{ $product->price }}" required>
                     </div>
-                    <select class="form-select mb-3" aria-label="Default select example" name="sub_category_id" required>
-                        <option selected>Selecciona la categoría</option>
-                        @foreach ($subcategories as $subcategory)
-                            <option value="{{ $subcategory->id }}" {{ $product->sc_id == $subcategory->id ? 'selected' : '' }}>
-                                {{ $subcategory->name }}
+                    <select class="form-select mb-3" aria-label="Default select example" name="sub_sub_category_id" required>
+                        <option selected>Selecciona la sub sub categoría</option>
+                        @foreach ($subsubcategories as $subsubcategory)
+                            <option value="{{ $subsubcategory->id }}" {{ $product->ssc_id == $subsubcategory->id ? 'selected' : '' }}>
+                                {{ $subsubcategory->name }}
                             </option>
                         @endforeach
                     </select>

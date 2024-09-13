@@ -156,13 +156,6 @@ main {
     padding: 3rem;
 }
 
-.contain-category-cards {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 1rem;
-    justify-content: flex-start;
-    align-items: center;
-}
 
 .button-container {
     background-color: #f0f9f9;
