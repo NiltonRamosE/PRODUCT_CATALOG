@@ -17,7 +17,6 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->decimal('price');
             $table->boolean('active');
-            $table->integer('stock');
             $table->timestamps();
         });
     }
