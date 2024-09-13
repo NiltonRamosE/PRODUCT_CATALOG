@@ -77,7 +77,6 @@
                         <th>Descripción</th>
                         <th>Sub Categoría</th>
                         <th>Precio</th>
-                        <th>Stock</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -90,7 +89,6 @@
                         <th>Descripción</th>
                         <th>Sub Categoría</th>
                         <th>Precio</th>
-                        <th>Stock</th>
                         <th>Acciones</th>
                     </tr>
                 </tfoot>
@@ -105,7 +103,6 @@
                             <td>{{ $product->description }}</td>
                             <td>{{ $product->subcategory_name }}</td>
                             <td>{{ $product->price }}</td>
-                            <td>{{ $product->stock }}</td>
                             <td>
 
                                 <div class="dropstart">

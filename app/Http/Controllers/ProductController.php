@@ -54,17 +54,13 @@ class ProductController extends Controller
 
             $code = $categoryName . '_' . $subcategoryInitials . '_' . $nextNumber;
 
-            $stock = $request->input('stock');
-            $active = $stock > 0;
-            
             $newProduct = Product::create([
                 'sub_category_id' => $sub_category_id,
                 'code' => $code,
                 'name' => $request->input('nombre'),
                 'description' => $request->input('descripcion'),
                 'price' => $request->input('precio'),
-                'active' => $active,
-                'stock' => $stock,
+                'active' => true,
             ]);
 
             $this->createImagesProducts($request, $newProduct);
@@ -83,17 +79,12 @@ class ProductController extends Controller
 
             $product = Product::find($id);
 
-            $stock = $request->input('stock');
-            $active = $stock > 0;
-            
             $product->update([
                 'sub_category_id' => $request->input('sub_category_id'),
                 'code' => $product->code,
                 'name' => $request->input('nombre'),
                 'description' => $request->input('descripcion'),
                 'price' => $request->input('precio'),
-                'active' => $active,
-                'stock' => $stock,
             ]);
 
             $images = $this->getProductImages($product);
@@ -189,7 +180,6 @@ class ProductController extends Controller
             'nombre' => 'required|string|max:100',
             'descripcion' => 'nullable|string',
             'precio' => 'required|numeric|min:0',
-            'stock' => 'required|integer|min:0',
             'imagen_1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'imagen_2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'imagen_3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',

@@ -20,8 +20,6 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text">Precio</span>
                         <input type="text" class="form-control" placeholder="" aria-label="Username" name="precio" required>
-                        <span class="input-group-text">Stock</span>
-                        <input type="text" class="form-control" placeholder="" aria-label="Username" name="stock" required>
                     </div>
                     <select class="form-select mb-3" aria-label="Default select example" name="sub_category_id" required>
                         <option selected>Selecciona la categoría</option>
