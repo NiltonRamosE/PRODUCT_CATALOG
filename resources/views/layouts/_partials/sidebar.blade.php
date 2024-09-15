@@ -17,6 +17,10 @@
                     <div class="nav-link-icon"><i class="fa-solid fa-indent"></i></div>
                     Sub Categoría
                 </a>
+                <a class="nav-link" href="{{ route('subsubcategory.index') }}">
+                    <div class="nav-link-icon"><i class="fa-solid fa-indent"></i></div>
+                    Sub Sub Categoría
+                </a>
                 <a class="nav-link" href="{{ route('product.index') }}">
                     <div class="nav-link-icon"><i class="fa-solid fa-box"></i></div>
                     Productos

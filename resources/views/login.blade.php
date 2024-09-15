@@ -26,9 +26,9 @@
             <div class="form-information-childs">
                 <h2>Login de Administradores</h2>
                 <div class="icons">
-                    <i class='bx bxl-facebook'></i>
-                    <i class='bx bxl-instagram'></i>
-                    <i class='bx bxl-tiktok' ></i>
+                    <a href="https://www.facebook.com/share/qBLKU7uiEyZVm8vo/?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer"><i class='bx bxl-facebook'></i></a>
+                    <a href="https://www.instagram.com/klimacitystore?utm_source=qr&igsh=MTRvZm9pc3o2N2pnYQ==" target="_blank" rel="noopener noreferrer"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://www.tiktok.com/@klimacity.store?_r=1&_d=efd69bf0087cl8&sec_uid=MS4wLjABAAAACqM8fT0dcFRHwzcUgmCuaINYYVgY2yr07KdTeFP1I6Qf4aIt6kntCOvTF3WDuVZb&share_author_id=7410176506305053701&sharer_language=es&source=h5_m&u_code=da1i8a4f3aji96&ug_btm=b6880,b5836&sec_user_id=MS4wLjABAAAA21ymfzfu-x9M82XTwDS8PvSuUw2UJ48K6ma1fvc1GXyNERRf9xbHvQjZVetL5hE4&utm_source=copy&social_share_type=5&utm_campaign=client_share&utm_medium=ios&tt_from=copy&user_id=6773332644647371782&enable_checksum=1&share_link_id=47343366-995A-43FC-B50A-E2014DC2B380&share_app_id=1233" target="_blank" rel="noopener noreferrer"><i class='bx bxl-tiktok' ></i></a>
                 </div>
                 <p>Formulario no disponible para usuarios</p>
                 <p>Le recomendamos ver nuestros productos en: <a href="{{ route('shop.index') }}" style="text-decoration: none;"><b>KLimaCity</b></a></p>

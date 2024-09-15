@@ -28,10 +28,6 @@ class SubCategoryController extends Controller
 
             $nombreSubCategoria = $request->input('nombre');
 
-            if ($this->searchRepeatedSubcategories($nombreSubCategoria)) {
-                return redirect()->back()->with('mensaje', 'No se pudo registrar la sub categoría, ya existe un registro con el mismo nombre');
-            }
-
             SubCategory::create([
                 'name' => $nombreSubCategoria,
                 'category_id' => $request->input('category_id'),
@@ -50,10 +46,6 @@ class SubCategoryController extends Controller
 
             $nombreSubCategoria = $request->input('nombre');
 
-            if ($this->searchRepeatedSubcategories($nombreSubCategoria)) {
-                return redirect()->back()->with('mensaje', 'No se pudo actualizar la sub categoría, ya existe un registro con el mismo nombre');
-            }
-
             $subcategory = SubCategory::find($id);
             $subcategory->update([
                 'name' =>  $nombreSubCategoria,
@@ -70,11 +62,6 @@ class SubCategoryController extends Controller
     {
         SubCategory::destroy($id);
         return redirect()->back()->with('mensaje', 'Sub categoría eliminada exitosamente.');
-    }
-
-    public function searchRepeatedSubcategories(string $name): bool
-    {
-        return SubCategory::where('name', $name)->exists();
     }
 
     protected function validateSubCategoryRequest(Request $request)

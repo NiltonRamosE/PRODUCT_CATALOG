@@ -22,7 +22,7 @@
 
                 <div class="col-auto">
                     <a href="#" class="icon-link"><i class="fas fa-user"></i></a>
-                    <a href="{{ route('shop.shoppingcart') }}" class="icon-link"><i class="fas fa-shopping-cart"></i><span class="cart-count" id="cart-count">0</span></a>
+                    {{--<a href="{{ route('shop.shoppingcart') }}" class="icon-link"><i class="fas fa-shopping-cart"></i><span class="cart-count" id="cart-count">0</span></a>--}}
                 </div>
             </div>
         </div>
@@ -55,6 +55,7 @@
         <a href="{{ route('shop.index') }}">Inicio</a>
         <a href="#">{{ $product->c_name }}</a>
         <a href="#">{{ $product->sc_name }}</a>
+        <a href="#">{{ $product->ssc_name }}</a>
         <span>{{ $product->name }}</span>
     </div>
 
@@ -88,19 +89,11 @@
                     <i class="fas fa-times-circle" style="color: red;"></i>
                 @endif
             </p>
-            <p class="description">Cantidad: {{ $product->stock }}</p>
-
-            @if($product->stock > 0)
-                <div class="cantidad-container">
-                    <label for="cantidad-{{ $product->id }}" class="cantidad-label">Cantidad:</label>
-                    <input type="number" id="cantidad-{{ $product->id }}" name="cantidad" min="1" max="{{ $product->stock }}" value="1" class="cantidad-input">
-                </div>
-            @else
-                <p class="agotado">Producto agotado</p>
-            @endif
+            {{--
             <div class="row">
                 <button id="{{ $product->id }}" class="button-add-car" {{ !$product->active ? 'disabled' : '' }}>Añadir al carrito</button>
             </div>
+            --}}
             <div class="row">
                 <a id="whatsapp-link" href="#" target="_blank" class="whatsapp-button {{ !$product->active ? 'disabled-link' : '' }}">
                     <i class="fab fa-whatsapp"></i> Ordena vía WhatsApp
