@@ -27,13 +27,13 @@
         <a href="{{ route('shop.index') }}">Inicio</a>
         
     </div>
-    
+
     <div class="scroll-container">
-        <button class="arrow-left" onclick="scrollLeft()">&#8249;</button>
+        <button class="arrow-left" onclick="scrollLeftButton()">&#8249;</button>
         
         <div class="category-buttons" id="containCategoryCards"></div>
         
-        <button class="arrow-right" onclick="scrollRight()">&#8250;</button>
+        <button class="arrow-right" onclick="scrollRightButton()">&#8250;</button>
     </div>
     
     <div id="contenedor-productos" class="contenedor-productos"></div>

@@ -2,12 +2,12 @@ const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const containCategoryCards = document.querySelector("#containCategoryCards");
 const contenedorProductos = document.querySelector("#contenedor-productos");
 
-function scrollLeft() {
-    containCategoryCards.scrollLeft -= 100;
+function scrollLeftButton() {
+    containCategoryCards.scrollLeft -= 200;
 }
 
-function scrollRight() {
-    containCategoryCards.scrollLeft += 100;
+function scrollRightButton() {
+    containCategoryCards.scrollLeft += 200;
 }
 
 fetch(`${baseUrl}/allproducts`)

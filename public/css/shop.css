@@ -156,7 +156,37 @@ main {
     padding: 3rem;
 }
 
+.scroll-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
 
+.arrow-left, .arrow-right {
+    display: none;
+    background-color: #f0f0f0;
+    border: none;
+    color: #333;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    border-radius: 50%;
+}
+  
+.arrow-left {
+    left: 0;
+}
+  
+.arrow-right {
+    right: 0;
+}
+  
 .button-container {
     background-color: #f0f9f9;
     color: #008080;
@@ -345,6 +375,22 @@ main {
     }
     .logo {
         width: 80%;
+    }
+
+    .arrow-left, .arrow-right {
+        display: block;
+    }
+
+    .category-buttons {
+        display: flex;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        padding: 10px 0;
+        scrollbar-width: none;
+    }
+      
+    .category-buttons::-webkit-scrollbar {
+        display: none;
     }
 }
 
