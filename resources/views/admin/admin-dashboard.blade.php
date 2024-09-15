@@ -38,7 +38,7 @@
                         @endif
                         <p class="text-gray-700">Puedes iniciar a gestionar tu tienda en línea </p>
                         <p class="text-gray-700">¿Comenzamos?</p>
-                        <a class="btn btn-primary p-3" href="">
+                        <a class="btn btn-primary p-3" href="{{ route('product.index') }}">
                             Ir a Módulo Productos
                             <i class="ms-1" data-feather="arrow-right"></i>
                         </a>

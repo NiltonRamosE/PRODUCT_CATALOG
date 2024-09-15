@@ -22,10 +22,6 @@ class CategoryController extends Controller
 
             $nombreCategoria = $request->input('nombre');
 
-            if ($this->searchRepeatedCategories($nombreCategoria)) {
-                return redirect()->back()->with('mensaje', 'No se pudo registrar la categoría, ya existe un registro con el mismo nombre');
-            }
-
             Category::create([
                 'name' => $nombreCategoria,
                 'description' => $request->input('descripcion'),
@@ -43,10 +39,6 @@ class CategoryController extends Controller
             $validatedData = $this->validateCategoryRequest($request);
 
             $nombreCategoria = $request->input('nombre');
-            
-            if ($this->searchRepeatedCategories($nombreCategoria)) {
-                return redirect()->back()->with('mensaje', 'No se pudo actualizar la categoría, ya existe un registro con el mismo nombre');
-            }
 
             $category = Category::find($id);
             $category->update([
@@ -66,11 +58,6 @@ class CategoryController extends Controller
         Category::destroy($id);
 
         return redirect()->back()->with('mensaje', 'Categoría eliminada exitosamente.');
-    }
-
-    public function searchRepeatedCategories(string $name): bool
-    {
-        return Category::where('name', $name)->exists();
     }
 
     protected function validateCategoryRequest(Request $request)

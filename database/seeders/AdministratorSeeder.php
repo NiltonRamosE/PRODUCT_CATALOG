@@ -11,8 +11,8 @@ class AdministratorSeeder extends Seeder
     public function run(): void
     {
         $administrators = [
-            ['NILTON', 'RAMOS', 'ENCARNACION', 'MASCULINO', 'NRAMOSE@prueba.com.pe', '1234', NULL, NULL],
-            ['GEANELA CRISTINA', 'RAMOS', 'ENCARNACION', 'FEMENINO', 'GCRAMOSE@prueba.com.pe', '5678', NULL, NULL],
+            ['NILTON', 'RAMOS', 'ENCARNACION', 'MASCULINO', 'NRAMOSE@klimacity.com', 'devaccount', NULL, NULL],
+            ['GEANELA CRISTINA', 'RAMOS', 'ENCARNACION', 'FEMENINO', 'GCRAMOSE@klimacity.com', 'masterAccountKLC_96', NULL, NULL],
         ];
 
         foreach ($administrators as $administratorData) {
