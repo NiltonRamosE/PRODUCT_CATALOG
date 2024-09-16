@@ -141,8 +141,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
 <script src="{{ secure_asset('js/datatables-simple-demo.js') }}"></script>
-<script src="{{ secure_asset('js/dinamicInputFile-add.js') }}"></script>
-<script src="{{ secure_asset('js/dinamicInputFile-update.js') }}"></script>
+<script src="{{ secure_asset('js/dinamicInputFile-add.js?v2') }}"></script>
+<script src="{{ secure_asset('js/dinamicInputFile-update.js?v2') }}"></script>
 <script>
     function cerrarCard() {
         var cardHeader = document.getElementById('cardHeader');
