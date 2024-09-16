@@ -104,7 +104,7 @@
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     @include('layouts._partials.script_shop')
-    <script src="{{ secure_asset('js/description_product.js') }}"></script>
+    <script src="{{ secure_asset('js/description_product.js?v2') }}"></script>
     <script src="{{ secure_asset('js/order-whatsapp.js?v2') }}"></script>
 </body>
 </html>

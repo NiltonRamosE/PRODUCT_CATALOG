@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     @include('layouts._partials.head_template')
-    <link rel="stylesheet" href="{{ secure_asset('css/shop.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/shop.css?v2') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body>
@@ -34,7 +34,7 @@
         </main>
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="{{ secure_asset('js/menu.js') }}"></script>
+    <script src="{{ secure_asset('js/menu.js?v2') }}"></script>
     @yield('content-script-shop')
 </body>
 </html>
