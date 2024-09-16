@@ -27,6 +27,6 @@
     @yield('scripts')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="https://assets.startbootstrap.com/js/sb-customizer.js"></script>
-    <script src="{{ secure_asset('js/admin-scripts.js') }}"></script>
+    <script src="{{ secure_asset('js/admin-scripts.js?v2') }}"></script>
 </body>
 </html>

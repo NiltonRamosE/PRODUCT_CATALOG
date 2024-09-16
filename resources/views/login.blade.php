@@ -107,6 +107,6 @@
             </div>
         </div>
     </div>
-    <script src="{{ secure_asset('js/login-hide.js') }}"></script>
+    <script src="{{ secure_asset('js/login-hide.js?v2') }}"></script>
 </body>
 </html>
