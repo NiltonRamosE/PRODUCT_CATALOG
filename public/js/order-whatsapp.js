@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         
             let mensaje = `Hola, KLimaCity.\nQuiero ordenar este producto.\nProducto: *${productName}*.\nPrecio Unitario: _S/ ${productPrice}_.`;
 
-            const whatsappUrl = `https://wa.me/951011604?text=${encodeURIComponent(mensaje)}`;
+            const whatsappUrl = `https://wa.me/928295386?text=${encodeURIComponent(mensaje)}`;
             
             whatsappButton.href = whatsappUrl;
             

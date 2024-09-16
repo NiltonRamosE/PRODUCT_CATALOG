@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const maxFiles = 5; // Límite máximo de inputs
+    const maxFiles = 6; // Límite máximo de inputs
 
     function initFileInputHandlers(modalId) {
         const fileInputsDiv = document.querySelector(`#${modalId} #file-inputs`);

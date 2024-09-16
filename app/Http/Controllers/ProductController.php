@@ -188,12 +188,13 @@ class ProductController extends Controller
             'imagen_3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'imagen_4' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'imagen_5' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'imagen_6' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
     }
 
     protected function createImagesProducts(Request $request, Product $newProduct){
 
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 1; $i <= 6; $i++) {
             $imageInputName = 'imagen_' . $i;
             if ($request->hasFile($imageInputName)) {
                 $image = $request->file($imageInputName);
